@@ -24,6 +24,19 @@
 
 			request.send();
 		});
+
+		console.log(promise);
+
+		promise.then(
+			function (value) {
+				value = JSON.parse(value);
+				console.log("fulfilled", value);
+				return value;
+			},
+			function (reason) {
+				console.log(reason);
+			}
+		);
     </script>
 </head>
 <body>
