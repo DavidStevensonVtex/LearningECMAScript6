@@ -92,6 +92,7 @@
     <Content Include="Web.config" />
     <Content Include="wwwroot\002_async_code_using_callbacks.html" />
     <Content Include="wwwroot\001_async_code_using_events.html" />
+    <Content Include="wwwroot\003_the_promise_constructor.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
