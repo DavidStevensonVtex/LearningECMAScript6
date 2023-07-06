@@ -90,6 +90,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
+    <Content Include="wwwroot\002_async_code_using_callbacks.html" />
     <Content Include="wwwroot\001_async_code_using_events.html" />
   </ItemGroup>
   <ItemGroup>
