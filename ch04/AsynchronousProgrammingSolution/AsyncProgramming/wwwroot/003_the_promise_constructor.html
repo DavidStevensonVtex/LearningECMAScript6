@@ -4,30 +4,31 @@
     <meta charset="utf-8" />
     <title>Hello World</title>
     <script type="text/javascript">
-		let promise = new Promise(function (resolve, reject) {
-			let request = new XMLHttpRequest();
-			let url = "http://localhost:57582/wwwroot/data.json";
 
-			request.open("GET", url);
-			request.addEventListener("load", function () {
-				if (request.status === 200) {
-					resolve(request.responseText);
-				}
-				else {
-					reject("Server Error; " + request.status);
-				}
-			}, false);
+		function ajax() {
+			return promise = new Promise(function (resolve, reject) {
+				let request = new XMLHttpRequest();
+				let url = "http://localhost:57582/wwwroot/data.json";
 
-			request.addEventListener("error", function () {
-				reject("Cannot Make AJAX Request");
-			}, false);
+				request.open("GET", url);
+				request.addEventListener("load", function () {
+					if (request.status === 200) {
+						resolve(request.responseText);
+					}
+					else {
+						reject("Server Error; " + request.status);
+					}
+				}, false);
 
-			request.send();
-		});
+				request.addEventListener("error", function () {
+					reject("Cannot Make AJAX Request");
+				}, false);
 
-		console.log(promise);
+				request.send();
+			});
+		}
 
-		promise.then(
+		ajax().then(
 			function (value) {
 				value = JSON.parse(value);
 				console.log("fulfilled", value);
