@@ -28,16 +28,32 @@
 			});
 		}
 
-		ajax().then(
-			function (value) {
-				value = JSON.parse(value);
-				console.log("fulfilled", value);
+		ajax()
+			.then(
+				function (value) {
+					value = JSON.parse(value);
+					console.log("fulfilled", value);
+					return value;
+				},
+				function (reason) {
+					console.log(reason);
+				}
+			)
+			.then(function (value) {
+				console.log(value.Name);
 				return value;
-			},
-			function (reason) {
+			})
+			.then(function (value) {
+				console.log(value.Profession);
+				return value;
+			})
+			.then(function (value) {
+				console.log(value.Age);
+				return value;
+			})
+			.then(null, function (reason) {
 				console.log(reason);
-			}
-		);
+			});
     </script>
 </head>
 <body>
