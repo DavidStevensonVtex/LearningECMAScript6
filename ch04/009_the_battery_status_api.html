@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>The Battery Status API</title>
+        <script type="text/javascript">
+            navigator.getBattery()
+    .then(function(value) {
+        console.log("Battery Level: " + (value.level * 100)) ;
+    },
+    function(reason) {
+        console.log("Error: " + reason);
+    });
+        </script>
+    </head>
+    <body>
+        <h1>The Battery Status API</h1>
+    </body>
+</html>
