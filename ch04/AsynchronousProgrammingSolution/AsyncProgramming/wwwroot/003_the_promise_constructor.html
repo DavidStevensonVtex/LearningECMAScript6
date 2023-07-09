@@ -28,6 +28,17 @@
 			});
 		}
 
+		function verify(value) {
+			return new Promise(function (resolve, reject) {
+				if (value == true) {
+					// Make AJAX request to send data to the server.
+				}
+				else {
+					// Make AJAX request to send data to server.
+				}
+			})
+		}
+
 		ajax()
 			.then(
 				function (value) {
@@ -51,7 +62,11 @@
 				console.log(value.Age);
 				return value;
 			})
-			.then(null, function (reason) {
+			.then(function (value) {
+				var result = confirm("Is the data correct?");
+				return result;
+			})
+			.then(verify).then(null, function (reason) {
 				console.log(reason);
 			});
     </script>
