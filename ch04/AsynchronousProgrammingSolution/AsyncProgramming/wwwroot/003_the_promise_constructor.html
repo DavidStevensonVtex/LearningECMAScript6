@@ -31,10 +31,11 @@
 		function verify(value) {
 			return new Promise(function (resolve, reject) {
 				if (value == true) {
-					// Make AJAX request to send data to the server.
+					resolve("Data verification succeeded.");
 				}
 				else {
 					// Make AJAX request to send data to server.
+					reject("Data verification failed.");
 				}
 			})
 		}
@@ -66,7 +67,11 @@
 				var result = confirm("Is the data correct?");
 				return result;
 			})
-			.then(verify).then(null, function (reason) {
+			.then(verify)
+			.then(function (successMessage) {
+				console.log(successMessage);
+			})
+			.catch(function (reason) {
 				console.log(reason);
 			});
     </script>
