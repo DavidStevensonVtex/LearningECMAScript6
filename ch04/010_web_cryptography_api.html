@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>The Web Cryptography API</title>
+        <script type="text/javascript">
+
+            function convertStringToArrayBufferView(str) 
+            {
+                var bytes = new Uint8Array(str.length) ;
+                for (let iii = 0 ; iii < str.length ; iii++)
+                {
+                    bytes[iii] = str.charCodeAt(iii);
+                }
+
+                return bytes ;
+            }
+
+            function convertArrayBufferToHexaDecimal(buffer) 
+            {
+                var data_view = new DataView(buffer);
+                var iii, len, hex = '', c ;
+
+                for ( iii = 0, len = data_view.byteLength ; iii < len ; iii++ ) 
+                {
+                    c = data_view.getUint8(iii).toString(16) ;
+                    if (c.length < 2) 
+                    {
+                        c = '0' + c ;
+                    }
+
+                    hex += c ;
+                }
+
+                return hex ;
+            }
+
+            console.log("starting...")
+                
+            window.crypto.subtle.digest( {name: "SHA-256" }, convertStringToArrayBufferView("ECMAScript 6"))
+            .then( function ( result ) {
+                console.log("Success.");
+                var hash_value = convertArrayBufferToHexaDecimal(result) ;
+                console.log(hash_value) ;
+            },
+            function (reason) {
+                console.log("Reject: " + reason);
+            }) ;
+        </script>
+    </head>
+    <body>
+        <h1>The Web Cryptography API</h1>
+    </body>
+</html>>
