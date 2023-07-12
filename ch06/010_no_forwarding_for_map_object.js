@@ -7,3 +7,5 @@
 
 const proxy = new Proxy(new Map(), {});
 console.log(proxy.size); // TypeError: get size method called on incompatible Proxy
+
+// You have to use the "this-recovering" proxy illustrated above to work around this.
