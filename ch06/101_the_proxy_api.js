@@ -21,3 +21,12 @@ console.log("proxy.age", proxy.age);
 // proxy.name Eden
 // target.age 12
 // proxy.age 12
+
+// Simplified (equivalent):
+
+var proxy = new Proxy( { age: 12 }, {});
+proxy.name = "Eden" ;
+
+console.log();
+console.log("proxy.name", proxy.name);
+console.log("proxy.age", proxy.age);
